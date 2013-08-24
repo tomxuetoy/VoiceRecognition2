@@ -59,7 +59,7 @@ public class Test extends Activity implements OnClickListener {
 
 		// Check to see if a recognition activity is present
 		PackageManager pm = getPackageManager();
-		List<ResolveInfo> activities = pm.queryIntentActivities(new Intent(
+		List<ResolveInfo> activities = pm.queryIntentActivities(new Intent(	// need Google Voice Search installed on phone
 				RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
 		if (activities.size() != 0) {
 			speakButton.setOnClickListener(this);
@@ -83,6 +83,7 @@ public class Test extends Activity implements OnClickListener {
 	 */
 	private void startVoiceRecognitionActivity() {
 		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+//		intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "zh-CN");
 		intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
 		intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
 				"Speech recognition demo");
